@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import AboutSection from '../about';
 import FieldSection from '../fields';
+import ProjectSection from '../projects';
 import WorkSection from '../work';
 
 const MainComponent = () => {
@@ -9,6 +10,7 @@ const MainComponent = () => {
       <AboutSection />
       <FieldSection />
       <WorkSection />
+      <ProjectSection />
     </Box>
   );
 };

@@ -24,7 +24,17 @@ const fields = [
     description:
       'I like to code websites from scratch using modern tech stacks and bring ideas to life.',
 
-    technologies: [],
+    technologies: [
+      'Native Android',
+      'Flutter',
+      'Biometric authentication',
+      'Android CameraX',
+      'Firebase',
+      'Android Room (ORM library)',
+      'MVVM architecture',
+      'Lifecycle management',
+      'Navigation component',
+    ],
     tools: [],
   },
   {

@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography } from '@mui/material';
+import { Box, Grid, IconButton, Stack, Typography } from '@mui/material';
 import { Colors } from '../../utils/Colors';
 import RoundedButton from '../common/RoundedButton';
 
@@ -24,28 +24,67 @@ const Footer = () => {
         <Box display='flex' flexDirection='column' alignItems='center'>
           <Grid container spacing={4} justifyContent='center'>
             <Grid item>
-              <img
-                src='/assets/images/linkedin.png'
-                alt='Linkedin'
-                height={40}
-                width={40}
-              />
+              <IconButton
+                size='medium'
+                target='_blank'
+                href='https://www.linkedin.com/in/gimhan-rodrigo-23a5961b9/'
+                sx={{
+                  border: '1px solid white',
+                  '&:hover': {
+                    background: Colors.white,
+                  },
+                }}
+                disableRipple
+              >
+                <img
+                  src='/assets/images/linkedin.png'
+                  alt='Linkedin'
+                  height={25}
+                  width={25}
+                />
+              </IconButton>
             </Grid>
             <Grid item>
-              <img
-                src='/assets/images/instagram.png'
-                alt='Linkedin'
-                height={40}
-                width={40}
-              />
+              <IconButton
+                size='medium'
+                target='_blank'
+                href='https://www.instagram.com/gimhanamandyana/'
+                sx={{
+                  border: '1px solid white',
+                  '&:hover': {
+                    background: Colors.white,
+                  },
+                }}
+                disableRipple
+              >
+                <img
+                  src='/assets/images/instagram.png'
+                  alt='Instagram'
+                  height={26}
+                  width={26}
+                />
+              </IconButton>
             </Grid>
             <Grid item>
-              <img
-                src='/assets/images/mail.png'
-                alt='Linkedin'
-                height={40}
-                width={40}
-              />
+              <IconButton
+                size='medium'
+                href='mailto:gimhanr9@gmail.com'
+                //onClick={() => (window.location = 'mailto:yourmail@domain.com')}
+                sx={{
+                  border: '1px solid white',
+                  '&:hover': {
+                    background: Colors.white,
+                  },
+                }}
+                disableRipple
+              >
+                <img
+                  src='/assets/images/mail.png'
+                  alt='Email'
+                  height={26}
+                  width={26}
+                />
+              </IconButton>
             </Grid>
           </Grid>
           <Box mt={1} />

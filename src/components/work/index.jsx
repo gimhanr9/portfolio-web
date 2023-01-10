@@ -1,6 +1,8 @@
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
+import work from '../../data/work';
 import TabPanel from '../common/TabPanel';
+import PanelItem from './PanelItem';
 
 const a11yProps = (index) => {
   return {
@@ -18,56 +20,86 @@ const WorkSection = () => {
 
   return (
     <Box>
-      <Typography variant='h6' align='center'>
+      <Typography variant='h5' align='center'>
         Education and career journey
       </Typography>
       <Box
-        mt={6}
-        sx={{
-          flexGrow: 1,
-          bgcolor: 'background.paper',
-          display: 'flex',
-          justifyContent: 'center',
-          height: 224,
-        }}
+        display='flex'
+        justifyContent='center'
+        sx={{ paddingTop: 5, paddingBottom: 5 }}
       >
-        <Tabs
-          orientation='vertical'
-          variant='scrollable'
-          value={value}
-          onChange={handleChange}
-          aria-label='Vertical tabs example'
-          sx={{ borderRight: 1, borderColor: 'divider' }}
-        >
-          <Tab label='Item One' {...a11yProps(0)} />
-          <Tab label='Item Two' {...a11yProps(1)} />
-          <Tab label='Item Three' {...a11yProps(2)} />
-          <Tab label='Item Four' {...a11yProps(3)} />
-          <Tab label='Item Five' {...a11yProps(4)} />
-          <Tab label='Item Six' {...a11yProps(5)} />
-          <Tab label='Item Seven' {...a11yProps(6)} />
-        </Tabs>
-        <TabPanel value={value} index={0}>
-          Item One
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          Item Two
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          Item Three
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          Item Four
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-          Item Five
-        </TabPanel>
-        <TabPanel value={value} index={5}>
-          Item Six
-        </TabPanel>
-        <TabPanel value={value} index={6}>
-          Item Seven
-        </TabPanel>
+        <Box sx={{ width: '88%' }}>
+          <Box sx={{ display: { md: 'none' } }}>
+            <Box
+              mt={3}
+              sx={{
+                borderBottom: 1,
+                borderColor: 'divider',
+                maxWidth: '100%',
+              }}
+            >
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label='Vertical tabs example'
+                variant='scrollable'
+                scrollButtons='auto'
+                centered
+              >
+                {work.map((item, index) => (
+                  <Tab label={item.tabLabel} {...a11yProps(index)} wrapped />
+                ))}
+              </Tabs>
+            </Box>
+            {work.map((item, index) => (
+              <TabPanel value={value} index={index} key={index}>
+                <PanelItem
+                  title={item.title}
+                  place={item.place}
+                  startYear={item.startYear}
+                  endYear={item.endYear}
+                  tasks={item.tasks}
+                />
+              </TabPanel>
+            ))}
+          </Box>
+
+          <Box
+            mt={3}
+            sx={{
+              flexGrow: 1,
+              bgcolor: 'background.paper',
+              height: 224,
+              display: { xs: 'none', md: 'flex' },
+            }}
+          >
+            <Tabs
+              orientation='vertical'
+              value={value}
+              onChange={handleChange}
+              variant='scrollable'
+              scrollButtons='auto'
+              centered
+              aria-label='Vertical tabs example'
+              sx={{ borderRight: 1, borderColor: 'divider', width: '50%' }}
+            >
+              {work.map((item, index) => (
+                <Tab label={item.tabLabel} {...a11yProps(index)} />
+              ))}
+            </Tabs>
+            {work.map((item, index) => (
+              <TabPanel value={value} index={index} key={index}>
+                <PanelItem
+                  title={item.title}
+                  place={item.place}
+                  startYear={item.startYear}
+                  endYear={item.endYear}
+                  tasks={item.tasks}
+                />
+              </TabPanel>
+            ))}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

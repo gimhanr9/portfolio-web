@@ -5,22 +5,25 @@ import CommonField from './CommonField';
 const FieldSection = () => {
   return (
     <Box>
-      <Stack
-        direction='row'
-        divider={<Divider orientation='vertical' flexItem />}
-      >
-        {fields.map((field) => (
-          <Box xs={4}>
-            <CommonField
-              icon={field.icon}
-              title={field.title}
-              description={field.description}
-              technologies={field.technologies}
-              tools={field.tools}
-            />
-          </Box>
-        ))}
-      </Stack>
+      <Box display='flex' flexDirection='row' justifyContent='center'>
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          divider={<Divider orientation='vertical' flexItem />}
+          sx={{ border: '1px solid black', borderRadius: '16px', width: '88%' }}
+        >
+          {fields.map((field, index) => (
+            <Box key={index}>
+              <CommonField
+                icon={field.icon}
+                title={field.title}
+                description={field.description}
+                technologies={field.technologies}
+                tools={field.tools}
+              />
+            </Box>
+          ))}
+        </Stack>
+      </Box>
     </Box>
   );
 };
