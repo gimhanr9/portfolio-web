@@ -1,5 +1,6 @@
 import { Box, Divider, Stack } from '@mui/material';
 import fields from '../../data/fields';
+import { Colors } from '../../utils/Colors';
 import CommonField from './CommonField';
 
 const FieldSection = () => {
@@ -9,7 +10,11 @@ const FieldSection = () => {
         <Stack
           direction={{ xs: 'column', md: 'row' }}
           divider={<Divider orientation='vertical' flexItem />}
-          sx={{ border: '1px solid black', borderRadius: '16px', width: '88%' }}
+          sx={{
+            border: `1px solid ${Colors.divider}`,
+            borderRadius: '16px',
+            width: '88%',
+          }}
         >
           {fields.map((field, index) => (
             <Box key={index}>

@@ -13,8 +13,8 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useSpring, animated } from '@react-spring/web';
 
-const RenderButton = ({ completed, isPublic, link }) => {
-  if (completed) {
+const RenderButton = ({ completed, isPublic, link, showDetails }) => {
+  if (!completed) {
     return (
       <Button
         variant='outlined'
@@ -46,6 +46,9 @@ const RenderButton = ({ completed, isPublic, link }) => {
         startIcon={<InfoOutlinedIcon />}
         size='small'
         sx={{ borderRadius: 20 }}
+        onClick={() => {
+          showDetails();
+        }}
       >
         More Details
       </Button>
@@ -53,16 +56,27 @@ const RenderButton = ({ completed, isPublic, link }) => {
   }
 };
 
-const Front = ({ icon, title, description, technologies }) => {
+const Front = ({ icon, title, description, technologies, completed }) => {
   return (
     <Box className='front'>
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      {/* <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <img src={icon} alt='Project icon' />
-      </Box>
+      </Box> */}
       <Box>
-        <Typography variant='h6'>{title}</Typography>
+        <Typography variant='h6' color='text.primary'>
+          {title}
+        </Typography>
+        <Box mt={1} />
+        <Chip
+          size='small'
+          color={completed === true ? 'success' : 'primary'}
+          label={completed === true ? 'Completed' : 'Pending'}
+        />
+
         <Box mt={2} />
-        <Typography variant='body2'>{description}</Typography>
+        <Typography variant='body2' color='text.secondary'>
+          {description}
+        </Typography>
         <Box mt={2} />
       </Box>
       <Grid container spacing={1}>
@@ -76,15 +90,21 @@ const Front = ({ icon, title, description, technologies }) => {
   );
 };
 
-const Back = ({ completed, isPublic, link }) => {
+const Back = ({ completed, isPublic, link, showDetails }) => {
   return (
     <Box
       display='flex'
       alignItems='center'
       justifyContent='center'
       className='back'
+      p={5}
     >
-      <RenderButton completed={completed} isPublic={isPublic} link={link} />
+      <RenderButton
+        completed={completed}
+        isPublic={isPublic}
+        link={link}
+        showDetails={showDetails}
+      />
     </Box>
   );
 };
@@ -97,21 +117,26 @@ const ProjectCard = ({
   link,
   completed,
   isPublic,
+  showDetails,
 }) => {
   const [front, setFront] = useState(true);
   const styles = useSpring({
-    from: { opacity: '0' },
-    to: { opacity: '1' },
+    from: { opacity: '1' },
+    to: { opacity: '0' },
   });
 
   const fadeCard = () => {
     setFront(!front);
   };
+
+  const showMoreDetails = () => {
+    showDetails();
+  };
   return (
     <Card
       elevation={3}
-      onMouseEnter={fadeCard}
-      onMouseLeave={fadeCard}
+      // onMouseEnter={fadeCard}
+      // onMouseLeave={fadeCard}
       className={'card-container'}
     >
       <CardContent className='content' sx={{ padding: 4 }}>
@@ -120,8 +145,15 @@ const ProjectCard = ({
           title={title}
           description={description}
           technologies={technologies}
+          completed={completed}
         />
-        <Back completed={completed} isPublic={isPublic} link={link} />
+
+        <Back
+          completed={completed}
+          isPublic={isPublic}
+          link={link}
+          showDetails={showMoreDetails}
+        />
       </CardContent>
     </Card>
   );

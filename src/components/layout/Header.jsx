@@ -11,8 +11,16 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import RoundedButton from '../common/RoundedButton';
 import { Link } from '@mui/material';
+import BrightnessToggle from '../common/BrightnessToggle';
 
-const pages = ['About', 'Expertise', 'Journey', 'Projects', 'Contact'];
+const pages = [
+  'About',
+  'Expertise',
+  'Journey',
+  'Projects',
+  'Contact',
+  'Resume',
+];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -29,7 +37,7 @@ const Header = () => {
     <AppBar
       position='static'
       elevation={0}
-      sx={{ padding: 4, background: '#ffffffff' }}
+      sx={{ padding: 4, bgcolor: 'background.default' }}
     >
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
@@ -84,20 +92,29 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          <Link
-            href='/'
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-            }}
+          <Box
+            justifyContent='center'
+            alignItems='center'
+            sx={{ display: { xs: 'flex', md: 'none' } }}
           >
-            <img
-              src='/assets/images/logo.png'
-              alt='Logo'
-              height={70}
-              width={50}
-            />
-          </Link>
+            <Link
+              href='/'
+              sx={{
+                mr: 2,
+              }}
+            >
+              <img
+                src='/assets/images/logo.png'
+                alt='Logo'
+                height={70}
+                width={50}
+              />
+            </Link>
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <BrightnessToggle />
+            </Box>
+          </Box>
+
           <Box
             justifyContent='flex-end'
             alignItems='center'
@@ -112,8 +129,11 @@ const Header = () => {
                 {page}
               </Button>
             ))}
-            <Box ml={2}>
+            <Box ml={2} mr={2}>
               <RoundedButton text={'Resume'} />
+            </Box>
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <BrightnessToggle />
             </Box>
           </Box>
         </Toolbar>

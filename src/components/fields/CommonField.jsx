@@ -12,7 +12,7 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
         />
 
         <Box mt={3} />
-        <Typography variant='h6' align='center'>
+        <Typography variant='h6' align='center' color='text.primary'>
           {title}
         </Typography>
         <Box mt={3} />
@@ -20,7 +20,7 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
           {description}
         </Typography>
         <Box mt={6} />
-        <Typography variant='subtitle1' align='center'>
+        <Typography variant='subtitle1' align='center' color='text.primary'>
           Key areas
         </Typography>
         <Box mt={1} />
@@ -30,7 +30,7 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
           </Typography>
         ))}
         <Box mt={6} />
-        <Typography variant='subtitle1' align='center'>
+        <Typography variant='subtitle1' align='center' color='text.primary'>
           Dev Tools
         </Typography>
         <Box mt={1} />

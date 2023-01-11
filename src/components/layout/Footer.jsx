@@ -7,7 +7,7 @@ const Footer = () => {
     <Box
       p={8}
       sx={{
-        background: Colors.secondaryLight,
+        bgcolor: 'background.secondary',
       }}
     >
       <Stack
@@ -17,8 +17,8 @@ const Footer = () => {
         alignItems='center'
       >
         <Box>
-          <Typography variant='h4' align='center'>
-            Get in touch
+          <Typography variant='h4' align='center' color='text.primary'>
+            Get in touch...
           </Typography>
         </Box>
         <Box display='flex' flexDirection='column' alignItems='center'>

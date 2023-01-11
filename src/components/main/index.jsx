@@ -9,7 +9,9 @@ const MainComponent = () => {
     <Box>
       <AboutSection />
       <FieldSection />
+      <Box mt={6} />
       <WorkSection />
+      <Box mt={6} />
       <ProjectSection />
     </Box>
   );
