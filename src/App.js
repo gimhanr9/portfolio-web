@@ -38,7 +38,7 @@ const App = () => {
         </Box>
       ) : null}
       {showContent ? (
-        <Routes>
+        <Routes exact>
           {routes.map((route) => (
             <Route
               path={route.path}

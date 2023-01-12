@@ -13,15 +13,16 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useSpring, animated } from '@react-spring/web';
 
-const RenderButton = ({ completed, isPublic, link, showDetails }) => {
+const RenderButton = ({ completed, isPublic, link }) => {
   if (!completed) {
     return (
       <Button
         variant='outlined'
         size='small'
-        startIcon={<AccessTimeIcon />}
+        startIcon={<GitHubIcon />}
         sx={{ borderRadius: 20 }}
         disabled
+        fullWidth
       >
         Pending Completion
       </Button>
@@ -35,22 +36,22 @@ const RenderButton = ({ completed, isPublic, link, showDetails }) => {
         startIcon={<GitHubIcon />}
         size='small'
         sx={{ borderRadius: 20 }}
+        fullWidth
       >
-        View Repository
+        Github
       </Button>
     );
-  } else {
+  } else if (completed && !isPublic) {
     return (
       <Button
         variant='outlined'
-        startIcon={<InfoOutlinedIcon />}
         size='small'
+        startIcon={<GitHubIcon />}
         sx={{ borderRadius: 20 }}
-        onClick={() => {
-          showDetails();
-        }}
+        disabled
+        fullWidth
       >
-        More Details
+        Not Public
       </Button>
     );
   }
@@ -69,7 +70,7 @@ const Front = ({ icon, title, description, technologies, completed }) => {
         <Box mt={1} />
         <Chip
           size='small'
-          color={completed === true ? 'success' : 'primary'}
+          color={completed === true ? 'success' : 'secondary'}
           label={completed === true ? 'Completed' : 'Pending'}
         />
 
@@ -90,21 +91,37 @@ const Front = ({ icon, title, description, technologies, completed }) => {
   );
 };
 
-const Back = ({ completed, isPublic, link, showDetails }) => {
+const Back = ({ title, details, completed, isPublic, link, showDetails }) => {
+  const moreDetails = () => {
+    showDetails(title, details, link);
+  };
   return (
     <Box
       display='flex'
+      flexDirection='column'
       alignItems='center'
       justifyContent='center'
       className='back'
-      p={5}
+      pl={5}
+      pb={3}
+      pr={5}
+      pt={4}
     >
-      <RenderButton
-        completed={completed}
-        isPublic={isPublic}
-        link={link}
-        showDetails={showDetails}
-      />
+      {details.length > 0 ? (
+        <Button
+          variant='outlined'
+          startIcon={<InfoOutlinedIcon />}
+          size='small'
+          sx={{ borderRadius: 20, mb: 2 }}
+          onClick={() => {
+            moreDetails();
+          }}
+          fullWidth
+        >
+          More Details
+        </Button>
+      ) : null}
+      <RenderButton completed={completed} isPublic={isPublic} link={link} />
     </Box>
   );
 };
@@ -113,6 +130,7 @@ const ProjectCard = ({
   icon,
   title,
   description,
+  moreDetails,
   technologies,
   link,
   completed,
@@ -129,9 +147,9 @@ const ProjectCard = ({
     setFront(!front);
   };
 
-  const showMoreDetails = () => {
-    showDetails();
-  };
+  // const showMoreDetails = () => {
+  //   showDetails();
+  // };
   return (
     <Card
       elevation={3}
@@ -149,10 +167,12 @@ const ProjectCard = ({
         />
 
         <Back
+          title={title}
+          details={moreDetails}
           completed={completed}
           isPublic={isPublic}
           link={link}
-          showDetails={showMoreDetails}
+          showDetails={showDetails}
         />
       </CardContent>
     </Card>

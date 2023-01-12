@@ -13,6 +13,7 @@ const RenderProjects = ({ showMore, showDetails }) => {
           icon={project.icon}
           title={project.title}
           description={project.description}
+          moreDetails={project.moreDetails}
           technologies={project.technologies}
           link={project.link}
           completed={project.completed}
@@ -29,6 +30,7 @@ const RenderProjects = ({ showMore, showDetails }) => {
           icon={project.icon}
           title={project.title}
           description={project.description}
+          moreDetails={project.moreDetails}
           technologies={project.technologies}
           link={project.link}
           completed={project.completed}
@@ -44,6 +46,7 @@ const RenderProjects = ({ showMore, showDetails }) => {
           icon={project.icon}
           title={project.title}
           description={project.description}
+          moreDetails={project.moreDetails}
           technologies={project.technologies}
           link={project.link}
           completed={project.completed}
@@ -72,13 +75,28 @@ const RenderButton = ({ showMore, functionality }) => {
 const ProjectSection = () => {
   const [showMore, setShowMore] = useState(false);
 
-  const [openDialog, setOpenDialog] = useState(false);
+  const [openDialog, setOpenDialog] = useState({
+    open: false,
+    title: '',
+    details: [],
+    link: '',
+  });
 
-  const handleOpenDialog = () => {
-    setOpenDialog(true);
+  const handleOpenDialog = (title, details, link) => {
+    setOpenDialog({
+      open: true,
+      title: title,
+      details: details,
+      link: link,
+    });
   };
   const handleCloseDialog = () => {
-    setOpenDialog(false);
+    setOpenDialog({
+      open: false,
+      title: '',
+      details: [],
+      link: '',
+    });
   };
 
   const showMoreOrLess = () => {
@@ -87,7 +105,13 @@ const ProjectSection = () => {
   return (
     <Box>
       <Box pt={8} pb={8}>
-        <DetailsDialog open={openDialog} close={handleCloseDialog} />
+        <DetailsDialog
+          open={openDialog.open}
+          title={openDialog.title}
+          details={openDialog.details}
+          link={openDialog.link}
+          close={handleCloseDialog}
+        />
         <Typography variant='h5' align='center' color='text.primary'>
           My projects
         </Typography>

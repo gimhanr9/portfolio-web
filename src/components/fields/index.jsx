@@ -1,15 +1,23 @@
-import { Box, Divider, Stack } from '@mui/material';
+import { Box, Divider, Stack, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import fields from '../../data/fields';
 import { Colors } from '../../utils/Colors';
 import CommonField from './CommonField';
 
 const FieldSection = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   return (
     <Box>
       <Box display='flex' flexDirection='row' justifyContent='center'>
         <Stack
           direction={{ xs: 'column', md: 'row' }}
-          divider={<Divider orientation='vertical' flexItem />}
+          divider={
+            <Divider
+              orientation={isMobile === true ? 'horizontal' : 'vertical'}
+              flexItem
+            />
+          }
           sx={{
             border: `1px solid ${Colors.divider}`,
             borderRadius: '16px',

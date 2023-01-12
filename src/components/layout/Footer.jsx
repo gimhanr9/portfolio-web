@@ -1,6 +1,9 @@
 import { Box, Grid, IconButton, Stack, Typography } from '@mui/material';
 import { Colors } from '../../utils/Colors';
 import RoundedButton from '../common/RoundedButton';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import EmailIcon from '@mui/icons-material/Email';
 
 const Footer = () => {
   return (
@@ -28,20 +31,10 @@ const Footer = () => {
                 size='medium'
                 target='_blank'
                 href='https://www.linkedin.com/in/gimhan-rodrigo-23a5961b9/'
-                sx={{
-                  border: '1px solid white',
-                  '&:hover': {
-                    background: Colors.white,
-                  },
-                }}
+                color='primary'
                 disableRipple
               >
-                <img
-                  src='/assets/images/linkedin.png'
-                  alt='Linkedin'
-                  height={25}
-                  width={25}
-                />
+                <LinkedInIcon />
               </IconButton>
             </Grid>
             <Grid item>
@@ -49,41 +42,22 @@ const Footer = () => {
                 size='medium'
                 target='_blank'
                 href='https://www.instagram.com/gimhanamandyana/'
-                sx={{
-                  border: '1px solid white',
-                  '&:hover': {
-                    background: Colors.white,
-                  },
-                }}
+                color='primary'
                 disableRipple
               >
-                <img
-                  src='/assets/images/instagram.png'
-                  alt='Instagram'
-                  height={26}
-                  width={26}
-                />
+                <InstagramIcon />
               </IconButton>
             </Grid>
             <Grid item>
               <IconButton
                 size='medium'
                 href='mailto:gimhanr9@gmail.com'
+                color='primary'
                 //onClick={() => (window.location = 'mailto:yourmail@domain.com')}
-                sx={{
-                  border: '1px solid white',
-                  '&:hover': {
-                    background: Colors.white,
-                  },
-                }}
+
                 disableRipple
               >
-                <img
-                  src='/assets/images/mail.png'
-                  alt='Email'
-                  height={26}
-                  width={26}
-                />
+                <EmailIcon />
               </IconButton>
             </Grid>
           </Grid>

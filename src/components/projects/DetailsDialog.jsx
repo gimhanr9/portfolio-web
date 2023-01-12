@@ -1,5 +1,8 @@
 import {
+  Box,
+  Button,
   Dialog,
+  DialogActions,
   DialogContent,
   DialogTitle,
   IconButton,
@@ -7,6 +10,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -27,11 +31,11 @@ function BootstrapDialogTitle(props) {
         <IconButton
           aria-label='close'
           onClick={onClose}
+          color='primary'
           sx={{
             position: 'absolute',
             right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
+            top: 12,
           }}
         >
           <CloseIcon />
@@ -41,7 +45,7 @@ function BootstrapDialogTitle(props) {
   );
 }
 
-const DetailsDialog = ({ open, close }) => {
+const DetailsDialog = ({ open, title, details, link, close }) => {
   const handleClose = () => {
     close();
   };
@@ -56,25 +60,30 @@ const DetailsDialog = ({ open, close }) => {
           id='customized-dialog-title'
           onClose={handleClose}
         >
-          Modal title
+          {title}
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+          {details.map((detail) => (
+            <Box mb={2}>
+              <Typography variant='body2'>{detail}</Typography>
+            </Box>
+          ))}
         </DialogContent>
+        <DialogActions>
+          <Box display='flex' justifyContent='center'>
+            <Button
+              variant='outlined'
+              target='_blank'
+              href={link}
+              startIcon={<GitHubIcon />}
+              size='small'
+              sx={{ borderRadius: 20 }}
+              fullWidth
+            >
+              Github
+            </Button>
+          </Box>
+        </DialogActions>
       </BootstrapDialog>
     </div>
   );

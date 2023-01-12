@@ -12,12 +12,24 @@ const Layout = (props) => {
     delay: 1000,
   });
 
+  useEffect(() => {
+    const { hash } = window.location;
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element)
+        element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  }, []);
+
   return (
     <React.Fragment>
       <animated.div id='layout-wrapper' style={styles}>
         <Header />
         <div id='main-content'>{props.children}</div>
-        <Footer />
+        <section id='contact'>
+          <Footer />
+        </section>
       </animated.div>
     </React.Fragment>
   );

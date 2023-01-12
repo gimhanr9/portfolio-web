@@ -12,14 +12,15 @@ import MenuItem from '@mui/material/MenuItem';
 import RoundedButton from '../common/RoundedButton';
 import { Link } from '@mui/material';
 import BrightnessToggle from '../common/BrightnessToggle';
+import { HashLink } from 'react-router-hash-link';
+import { Router } from 'react-router-dom';
 
 const pages = [
-  'About',
-  'Expertise',
-  'Journey',
-  'Projects',
-  'Contact',
-  'Resume',
+  { to: '/#about', page: 'About' },
+  { to: '/#expertise', page: 'Expertise' },
+  { to: '/#journey', page: 'My Journey' },
+  { to: '/#projects', page: 'Projects' },
+  { to: '/#contact', page: 'Contact' },
 ];
 
 const Header = () => {
@@ -86,8 +87,13 @@ const Header = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
+                <MenuItem
+                  component={HashLink}
+                  smooth
+                  to={page.to}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography textAlign='center'>{page.page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -121,14 +127,11 @@ const Header = () => {
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
           >
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
+              <Button component={HashLink} smooth to={page.to}>
+                {page.page}
               </Button>
             ))}
+
             <Box ml={2} mr={2}>
               <RoundedButton text={'Resume'} />
             </Box>

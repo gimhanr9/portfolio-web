@@ -48,18 +48,25 @@ export const Theme = createTheme({
       paper: Colors.white,
     },
 
-    // primary: {
-    //   main: Colors.black,
-    //   light: Colors.black,
-    //   dark: Colors.black,
-    //   contrastText: Colors.black,
-    // },
-    // secondary: {
-    //   main: Colors.white,
-    //   light: Colors.white,
-    //   dark: Colors.white,
-    //   contrastText: Colors.white,
-    // },
+    primary: {
+      main: '#2E2252',
+      light: Colors.black,
+      dark: Colors.black,
+      contrastText: Colors.white,
+    },
+    secondary: {
+      main: '#757ce8',
+      light: Colors.black,
+      dark: Colors.black,
+      contrastText: Colors.white,
+    },
+    tertiary: {
+      main: Colors.white,
+      light: Colors.black,
+      dark: Colors.black,
+      contrastText: Colors.white,
+    },
+
     // error: {
     //   main: Colors.error,
     //   light: Colors.errorLight,

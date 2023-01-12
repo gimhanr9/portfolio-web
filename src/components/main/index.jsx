@@ -7,12 +7,20 @@ import WorkSection from '../work';
 const MainComponent = () => {
   return (
     <Box>
-      <AboutSection />
-      <FieldSection />
+      <section id='about'>
+        <AboutSection />
+      </section>
+      <section id='expertise'>
+        <FieldSection />
+      </section>
       <Box mt={6} />
-      <WorkSection />
+      <section id='journey'>
+        <WorkSection />
+      </section>
       <Box mt={6} />
-      <ProjectSection />
+      <section id='projects'>
+        <ProjectSection />
+      </section>
     </Box>
   );
 };
