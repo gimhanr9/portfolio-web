@@ -103,7 +103,7 @@ const ProjectSection = () => {
     setShowMore(!showMore);
   };
   return (
-    <Box>
+    <Box sx={{ bgcolor: 'background.default' }}>
       <Box pt={8} pb={8}>
         <DetailsDialog
           open={openDialog.open}

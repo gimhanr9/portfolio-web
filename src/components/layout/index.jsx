@@ -1,6 +1,4 @@
-import { Box } from '@mui/material';
-import React, { useState, useEffect } from 'react';
-import { Puff } from 'react-loader-spinner';
+import React, { useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import { useSpring, animated } from '@react-spring/web';
@@ -22,10 +20,14 @@ const Layout = (props) => {
     }
   }, []);
 
+  const setBrightnessToggle = (value) => {
+    props.setBrightness(value);
+  };
+
   return (
     <React.Fragment>
       <animated.div id='layout-wrapper' style={styles}>
-        <Header />
+        <Header setBrightnessToggle={setBrightnessToggle} />
         <div id='main-content'>{props.children}</div>
         <section id='contact'>
           <Footer />

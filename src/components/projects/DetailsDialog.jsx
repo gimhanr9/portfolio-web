@@ -65,7 +65,9 @@ const DetailsDialog = ({ open, title, details, link, close }) => {
         <DialogContent dividers>
           {details.map((detail) => (
             <Box mb={2}>
-              <Typography variant='body2'>{detail}</Typography>
+              <Typography variant='body2' color='text.secondary'>
+                {detail}
+              </Typography>
             </Box>
           ))}
         </DialogContent>

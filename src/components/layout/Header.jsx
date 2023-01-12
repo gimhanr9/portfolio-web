@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,11 +9,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import RoundedButton from '../common/RoundedButton';
 import { Link } from '@mui/material';
 import BrightnessToggle from '../common/BrightnessToggle';
 import { HashLink } from 'react-router-hash-link';
-import { Router } from 'react-router-dom';
+import { Colors } from '../../utils/Colors';
 
 const pages = [
   { to: '/#about', page: 'About' },
@@ -23,8 +22,11 @@ const pages = [
   { to: '/#contact', page: 'Contact' },
 ];
 
-const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+const Header = ({ setBrightnessToggle }) => {
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [toggleChecked, setToggleChecked] = useState(
+    localStorage.getItem('theme') || false
+  );
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,6 +34,12 @@ const Header = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleBrightnessToggle = (event) => {
+    localStorage.setItem('theme', event.target.checked);
+    setToggleChecked(event.target.checked);
+    setBrightnessToggle(event.target.checked);
   };
 
   return (
@@ -64,7 +72,7 @@ const Header = () => {
               aria-controls='menu-appbar'
               aria-haspopup='true'
               onClick={handleOpenNavMenu}
-              color='inherit'
+              color='primary'
             >
               <MenuIcon />
             </IconButton>
@@ -103,7 +111,7 @@ const Header = () => {
             alignItems='center'
             sx={{ display: { xs: 'flex', md: 'none' } }}
           >
-            <Link
+            {/* <Link
               href='/'
               sx={{
                 mr: 2,
@@ -115,9 +123,12 @@ const Header = () => {
                 height={70}
                 width={50}
               />
-            </Link>
+            </Link> */}
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-              <BrightnessToggle />
+              <BrightnessToggle
+                checked={toggleChecked}
+                onChange={handleBrightnessToggle}
+              />
             </Box>
           </Box>
 
@@ -127,16 +138,30 @@ const Header = () => {
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
           >
             {pages.map((page) => (
-              <Button component={HashLink} smooth to={page.to}>
+              <Button
+                disableRipple
+                component={HashLink}
+                smooth
+                to={page.to}
+                sx={{
+                  mr: 1,
+                  '&:hover': {
+                    background: Colors.transparent,
+                  },
+                }}
+              >
                 {page.page}
               </Button>
             ))}
 
-            <Box ml={2} mr={2}>
+            {/* <Box ml={2} mr={2}>
               <RoundedButton text={'Resume'} />
-            </Box>
+            </Box> */}
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <BrightnessToggle />
+              <BrightnessToggle
+                checked={toggleChecked}
+                onChange={handleBrightnessToggle}
+              />
             </Box>
           </Box>
         </Toolbar>

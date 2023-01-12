@@ -8,7 +8,7 @@ const FieldSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   return (
-    <Box>
+    <Box sx={{ bgcolor: 'background.default' }}>
       <Box display='flex' flexDirection='row' justifyContent='center'>
         <Stack
           direction={{ xs: 'column', md: 'row' }}

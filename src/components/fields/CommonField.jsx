@@ -8,7 +8,7 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
       >
         <Avatar
           src={icon}
-          sx={{ width: 36, height: 36, padding: 2, background: '#F2F3F3' }}
+          sx={{ width: 36, height: 36, padding: 2, bgcolor: 'text.primary' }}
         />
 
         <Box mt={3} />
@@ -16,7 +16,7 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
           {title}
         </Typography>
         <Box mt={3} />
-        <Typography variant='body2' align='center'>
+        <Typography variant='body2' align='center' color='text.secondary'>
           {description}
         </Typography>
         <Box mt={6} />
@@ -25,7 +25,7 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
         </Typography>
         <Box mt={1} />
         {technologies.map((technology) => (
-          <Typography variant='body2' align='center'>
+          <Typography variant='body2' align='center' color='text.secondary'>
             {technology}
           </Typography>
         ))}
@@ -35,7 +35,7 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
         </Typography>
         <Box mt={1} />
         {tools.map((tool) => (
-          <Typography variant='body2' align='center'>
+          <Typography variant='body2' align='center' color='text.secondary'>
             {tool}
           </Typography>
         ))}

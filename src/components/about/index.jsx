@@ -1,14 +1,14 @@
-import { Box, Typography, Avatar } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Colors } from '../../utils/Colors';
 
 const AboutSection = () => {
   return (
-    <Box>
-      <Box sx={{ bgcolor: 'background.default' }}>
+    <Box sx={{ bgcolor: 'background.default' }}>
+      <Box>
         <Box
-          mt={6}
-          ml={2}
-          mr={2}
+          pt={6}
+          pl={2}
+          pr={2}
           sx={{
             display: 'flex',
             flexDirection: 'column',

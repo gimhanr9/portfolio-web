@@ -1,9 +1,16 @@
-import { Box, Grid, IconButton, Stack, Typography } from '@mui/material';
-import { Colors } from '../../utils/Colors';
-import RoundedButton from '../common/RoundedButton';
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from '@mui/material';
+
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -62,11 +69,14 @@ const Footer = () => {
             </Grid>
           </Grid>
           <Box mt={1} />
-          <Typography variant='body2' align='center'>
+          <Typography variant='body2' align='center' color='text.primary'>
             OR
           </Typography>
           <Box mt={1} />
-          <RoundedButton text={'Send a message'} />
+
+          <Button component={Link} to='/message' variant='outlined'>
+            Send a message
+          </Button>
         </Box>
       </Stack>
     </Box>

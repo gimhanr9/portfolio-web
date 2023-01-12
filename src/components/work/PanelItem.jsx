@@ -12,17 +12,19 @@ const PanelItem = ({ title, place, startYear, endYear, tasks }) => {
     <Box>
       <Box>
         <Grid display='flex'>
-          <Typography variant='body2'>{title} @&nbsp;</Typography>
-          <Typography variant='body2'>{place}</Typography>
+          <Typography variant='body2' color='text.primary'>
+            {title} @ {place}
+          </Typography>
+          {/* <Typography variant='body2'>{place}</Typography> */}
         </Grid>
-        <Typography variant='caption'>
+        <Typography variant='caption' color='text.secondary'>
           {startYear} - {endYear}
         </Typography>
         <Box mt={1} />
         <List>
           {tasks.map((task) => (
             <ListItem>
-              <ListItemText primary={task} />
+              <ListItemText primary={task} color='text.secondary' />
             </ListItem>
           ))}
         </List>

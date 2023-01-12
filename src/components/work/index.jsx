@@ -70,7 +70,7 @@ const WorkSection = () => {
               mt={3}
               sx={{
                 flexGrow: 1,
-                bgcolor: 'background.paper',
+                //bgcolor: 'background.paper',
                 height: 224,
                 display: { xs: 'none', md: 'flex' },
               }}

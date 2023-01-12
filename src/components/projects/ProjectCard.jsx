@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Box,
   Button,
@@ -9,9 +8,8 @@ import {
   Typography,
 } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { useSpring, animated } from '@react-spring/web';
+//import { useSpring, animated } from '@react-spring/web';
 
 const RenderButton = ({ completed, isPublic, link }) => {
   if (!completed) {
@@ -137,15 +135,15 @@ const ProjectCard = ({
   isPublic,
   showDetails,
 }) => {
-  const [front, setFront] = useState(true);
-  const styles = useSpring({
-    from: { opacity: '1' },
-    to: { opacity: '0' },
-  });
+  //const [front, setFront] = useState(true);
+  // const styles = useSpring({
+  //   from: { opacity: '1' },
+  //   to: { opacity: '0' },
+  // });
 
-  const fadeCard = () => {
-    setFront(!front);
-  };
+  // const fadeCard = () => {
+  //   setFront(!front);
+  // };
 
   // const showMoreDetails = () => {
   //   showDetails();

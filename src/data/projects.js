@@ -50,7 +50,8 @@ const projects = [
   {
     icon: '',
     title: 'Android Shopping Application',
-    description: '',
+    description:
+      'An Android ecommerce mobile application developed using the MVVM architecture and Navigation component with sophisticated',
     moreDetails: [],
     technologies: [
       'Android',
@@ -68,7 +69,7 @@ const projects = [
     icon: '',
     title: 'Applocker',
     description:
-      'An Android applocker being developed using the MVVM architecture and navigation components with enhanced fetures such as fingerprint authentication. The project uses android system APIs and currently lists all applications while the locking process is in progress.',
+      'An Android applocker being developed using the MVVM architecture and Navigation component with enhanced fetures such as fingerprint authentication. The project uses android system APIs and currently lists all applications while the locking process is in progress.',
     moreDetails: [],
     technologies: [
       'Android',

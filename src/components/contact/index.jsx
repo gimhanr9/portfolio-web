@@ -1,11 +1,11 @@
-import { Box, TextareaAutosize, TextField, Typography } from '@mui/material';
+import { Box, Divider, TextField, Typography } from '@mui/material';
 import RoundedButton from '../common/RoundedButton';
 
 const ContactComponent = () => {
   return (
-    <Box>
-      <Box display='flex' justifyContent='center'>
-        <Box pt={3} pb={8}>
+    <Box sx={{ bgcolor: 'background.default' }}>
+      <Box display='flex' justifyContent='center' pt={2} pb={8}>
+        <Box p={5} sx={{ bgcolor: 'background.secondary', minWidth: '40%' }}>
           <Typography variant='h5' align='center' color='text.primary'>
             Send a message
           </Typography>
@@ -30,6 +30,7 @@ const ContactComponent = () => {
           </Box>
         </Box>
       </Box>
+      <Divider />
     </Box>
   );
 };

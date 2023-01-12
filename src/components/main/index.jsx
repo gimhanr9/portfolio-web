@@ -13,11 +13,11 @@ const MainComponent = () => {
       <section id='expertise'>
         <FieldSection />
       </section>
-      <Box mt={6} />
+
       <section id='journey'>
         <WorkSection />
       </section>
-      <Box mt={6} />
+
       <section id='projects'>
         <ProjectSection />
       </section>
