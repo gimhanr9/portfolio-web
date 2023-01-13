@@ -15,7 +15,10 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <Box
-      p={8}
+      pt={8}
+      pl={8}
+      pr={8}
+      pb={3}
       sx={{
         bgcolor: 'background.secondary',
       }}
@@ -79,6 +82,11 @@ const Footer = () => {
           </Button>
         </Box>
       </Stack>
+      <Box display='flex' justifyContent='center' mt={3}>
+        <Typography variant='body2' color='text.primary' align='center'>
+          &copy; Gimhan Rodrigo. All rights reserved.
+        </Typography>
+      </Box>
     </Box>
   );
 };

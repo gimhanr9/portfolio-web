@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from '@mui/material';
+import { Link as ReactLink } from 'react-router-dom';
 import BrightnessToggle from '../common/BrightnessToggle';
 import { HashLink } from 'react-router-hash-link';
 import { Colors } from '../../utils/Colors';
@@ -51,7 +52,8 @@ const Header = ({ setBrightnessToggle }) => {
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Link
-            href='/'
+            component={ReactLink}
+            to='/'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
