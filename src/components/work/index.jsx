@@ -45,11 +45,15 @@ const WorkSection = () => {
                   aria-label='Vertical tabs example'
                   variant='scrollable'
                   scrollButtons={false}
-                  textColor='tertiary'
                   indicatorColor='secondary'
                 >
                   {work.map((item, index) => (
-                    <Tab label={item.tabLabel} {...a11yProps(index)} wrapped />
+                    <Tab
+                      key={index}
+                      label={item.tabLabel}
+                      {...a11yProps(index)}
+                      wrapped
+                    />
                   ))}
                 </Tabs>
               </Box>
@@ -71,7 +75,7 @@ const WorkSection = () => {
               sx={{
                 flexGrow: 1,
                 //bgcolor: 'background.paper',
-                height: 224,
+                //height: 224,
                 display: { xs: 'none', md: 'flex' },
               }}
             >
@@ -83,11 +87,14 @@ const WorkSection = () => {
                 scrollButtons='auto'
                 aria-label='Vertical tabs example'
                 sx={{ borderRight: 1, borderColor: 'divider', width: '50%' }}
-                textColor='tertiary'
                 indicatorColor='secondary'
               >
                 {work.map((item, index) => (
-                  <Tab label={item.tabLabel} {...a11yProps(index)} />
+                  <Tab
+                    key={index}
+                    label={item.tabLabel}
+                    {...a11yProps(index)}
+                  />
                 ))}
               </Tabs>
               {work.map((item, index) => (

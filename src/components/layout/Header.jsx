@@ -25,9 +25,7 @@ const pages = [
 
 const Header = ({ setBrightnessToggle }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [toggleChecked, setToggleChecked] = useState(
-    localStorage.getItem('theme') || false
-  );
+  const [toggleChecked, setToggleChecked] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -38,10 +36,26 @@ const Header = ({ setBrightnessToggle }) => {
   };
 
   const handleBrightnessToggle = (event) => {
+    console.log(event.target.checked);
     localStorage.setItem('theme', event.target.checked);
     setToggleChecked(event.target.checked);
     setBrightnessToggle(event.target.checked);
   };
+
+  const getBrightnessMode = () => {
+    let theme = localStorage.getItem('theme');
+    if (theme === 'true') {
+      setToggleChecked(true);
+    } else if (theme === 'false') {
+      setToggleChecked(false);
+    } else {
+      setToggleChecked(true);
+    }
+  };
+
+  useEffect(() => {
+    getBrightnessMode();
+  }, []);
 
   return (
     <AppBar
@@ -96,8 +110,9 @@ const Header = ({ setBrightnessToggle }) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {pages.map((page, index) => (
                 <MenuItem
+                  key={index}
                   component={HashLink}
                   smooth
                   to={page.to}
@@ -139,8 +154,9 @@ const Header = ({ setBrightnessToggle }) => {
             alignItems='center'
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
           >
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <Button
+                key={index}
                 disableRipple
                 component={HashLink}
                 smooth

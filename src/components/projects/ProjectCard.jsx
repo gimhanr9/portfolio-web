@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Card,
+  CardActionArea,
   CardContent,
   Chip,
   Grid,
@@ -22,7 +23,7 @@ const RenderButton = ({ completed, isPublic, link }) => {
         disabled
         fullWidth
       >
-        Pending Completion
+        Pending
       </Button>
     );
   } else if (isPublic) {
@@ -101,7 +102,6 @@ const Back = ({ title, details, completed, isPublic, link, showDetails }) => {
       justifyContent='center'
       className='back'
       pl={5}
-      pb={3}
       pr={5}
       pt={4}
     >
@@ -116,7 +116,7 @@ const Back = ({ title, details, completed, isPublic, link, showDetails }) => {
           }}
           fullWidth
         >
-          More Details
+          More
         </Button>
       ) : null}
       <RenderButton completed={completed} isPublic={isPublic} link={link} />
@@ -154,6 +154,11 @@ const ProjectCard = ({
       // onMouseEnter={fadeCard}
       // onMouseLeave={fadeCard}
       className={'card-container'}
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+      }}
     >
       <CardContent className='content' sx={{ padding: 4 }}>
         <Front

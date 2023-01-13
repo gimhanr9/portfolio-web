@@ -310,14 +310,7 @@ export const light = {
           fontSize: 16,
           fontWeight: '600',
           textTransform: 'none',
-          color: '#ffffff',
-        },
-      },
-    },
-    MuiTabs: {
-      styleOverrides: {
-        root: {
-          background: '#2E2252',
+          color: '#2E2252',
         },
       },
     },

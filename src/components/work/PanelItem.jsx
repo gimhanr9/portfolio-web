@@ -22,8 +22,8 @@ const PanelItem = ({ title, place, startYear, endYear, tasks }) => {
         </Typography>
         <Box mt={1} />
         <List>
-          {tasks.map((task) => (
-            <ListItem>
+          {tasks.map((task, index) => (
+            <ListItem key={index}>
               <ListItemText primary={task} color='text.secondary' />
             </ListItem>
           ))}

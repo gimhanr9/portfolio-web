@@ -7,8 +7,8 @@ import DetailsDialog from './DetailsDialog';
 
 const RenderProjects = ({ showMore, showDetails }) => {
   if (showMore === true && projects.length > 3) {
-    return projects.map((project) => (
-      <Grid item xs={12} md={4}>
+    return projects.map((project, index) => (
+      <Grid key={index} display='flex' item xs={12} md={6} lg={4}>
         <ProjectCard
           icon={project.icon}
           title={project.title}
@@ -24,8 +24,8 @@ const RenderProjects = ({ showMore, showDetails }) => {
     ));
   } else if (showMore === false && projects.length > 3) {
     const topProjects = projects.slice(0, 3);
-    return topProjects.map((project) => (
-      <Grid item xs={12} md={4}>
+    return topProjects.map((project, index) => (
+      <Grid key={index} display='flex' item xs={12} md={6} lg={4}>
         <ProjectCard
           icon={project.icon}
           title={project.title}
@@ -40,8 +40,8 @@ const RenderProjects = ({ showMore, showDetails }) => {
       </Grid>
     ));
   } else {
-    return projects.map((project) => (
-      <Grid item xs={12} md={4}>
+    return projects.map((project, index) => (
+      <Grid key={index} display='flex' item xs={12} md={6} lg={4}>
         <ProjectCard
           icon={project.icon}
           title={project.title}
@@ -117,7 +117,7 @@ const ProjectSection = () => {
         </Typography>
         <Box display='flex' justifyContent='center'>
           <Box sx={{ width: '88%', paddingTop: 5, paddingBottom: 5 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} alignItems='stretch'>
               <RenderProjects
                 showMore={showMore}
                 showDetails={handleOpenDialog}

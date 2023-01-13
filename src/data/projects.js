@@ -51,14 +51,13 @@ const projects = [
     icon: '',
     title: 'Android Shopping Application',
     description:
-      'An Android ecommerce mobile application developed using the MVVM architecture and Navigation component with sophisticated',
+      'An Android ecommerce mobile application developed using the MVVM architecture equipped with an admin login where products can be added while also replying to customer queries. This is a complete ecommerce application equipped with Firebase authentication.',
     moreDetails: [],
     technologies: [
       'Android',
       'Java',
-      'Biometric authentication',
       'Firebase',
-      'Room library',
+      'MVVM',
       'Navigation component',
     ],
     link: 'https://github.com/gimhanr9/lookgood-android',
@@ -69,7 +68,7 @@ const projects = [
     icon: '',
     title: 'Applocker',
     description:
-      'An Android applocker being developed using the MVVM architecture and Navigation component with enhanced fetures such as fingerprint authentication. The project uses android system APIs and currently lists all applications while the locking process is in progress.',
+      'An Android applocker being developed using the MVVM architecture and Navigation component with enhanced fetures such as fingerprint authentication. The project uses android system APIs and currently lists all applications while the locking process is being developed.',
     moreDetails: [],
     technologies: [
       'Android',
@@ -77,6 +76,7 @@ const projects = [
       'Biometric authentication',
       'Firebase',
       'Room library',
+      'MVVM',
       'Navigation component',
     ],
     link: '',

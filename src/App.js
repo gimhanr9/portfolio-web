@@ -11,9 +11,7 @@ import { light, dark } from './utils/Theme';
 const App = () => {
   //const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
   const [showContent, setShowContent] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    localStorage.getItem('theme') || false
-  );
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const changeTheme = (value) => {
     setIsDarkTheme(value);
@@ -28,6 +26,21 @@ const App = () => {
     }
   }, [showContent]);
 
+  const getBrightnessMode = () => {
+    let theme = localStorage.getItem('theme');
+    if (theme === 'true') {
+      setIsDarkTheme(true);
+    } else if (theme === 'false') {
+      setIsDarkTheme(false);
+    } else {
+      setIsDarkTheme(true);
+    }
+  };
+
+  useEffect(() => {
+    getBrightnessMode();
+  }, []);
+
   return (
     <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
       <div className='App'>
@@ -37,13 +50,13 @@ const App = () => {
             display='flex'
             alignItems='center'
             justifyContent='center'
-            sx={{ height: '100vh' }}
+            sx={{ height: '100vh', bgcolor: 'background.secondary' }}
           >
             <Puff
               height='80'
               width='80'
               radius={1}
-              color='#4fa94d'
+              color={isDarkTheme ? '#60A5FA' : '#2E2252'}
               ariaLabel='puff-loading'
               wrapperStyle={{}}
               wrapperClass=''
@@ -53,8 +66,9 @@ const App = () => {
         ) : null}
         {showContent ? (
           <Routes exact>
-            {routes.map((route) => (
+            {routes.map((route, index) => (
               <Route
+                key={index}
                 path={route.path}
                 element={
                   <Layout setBrightness={changeTheme}>{route.component}</Layout>

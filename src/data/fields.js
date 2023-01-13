@@ -10,22 +10,23 @@ const fields = [
       'NodeJS',
       'Flask',
       'JWT',
-      'Firebase',
       'Git',
       'HTML',
       'CSS',
       'Bootstrap',
+      'MUI',
     ],
-    tools: ['AWS', 'GCP', 'Github', 'Bitbucket'],
+    tools: ['AWS', 'Firebase', 'GCP', 'Github', 'Bitbucket'],
   },
   {
     icon: '/assets/images/app-development.png',
     title: 'Mobile Developer',
     description:
-      'I like to code websites from scratch using modern tech stacks and bring ideas to life.',
+      'I also develop mobile applications for native Android and also using Flutter to keep in touch with the field.',
 
     technologies: [
       'Native Android',
+      'Java',
       'Flutter',
       'Biometric authentication',
       'Android CameraX',
@@ -35,15 +36,22 @@ const fields = [
       'Lifecycle management',
       'Navigation component',
     ],
-    tools: [],
+    tools: ['Firebase', 'Github', 'Android Studio'],
   },
   {
     icon: '/assets/images/machine-learning.png',
     title: 'ML Enthusiast',
     description:
-      'I like to code websites from scratch using modern tech stacks and bring ideas to life.',
-    technologies: [],
-    tools: [],
+      'Keen researcher on deep learning technologies, especially in the field of facial recognition.',
+    technologies: [
+      'Python',
+      'Flask',
+      'Linux',
+      'Tensorflow',
+      'Keras',
+      'Neural Networks',
+    ],
+    tools: ['GCP', 'AWS', 'Firebase'],
   },
 ];
 

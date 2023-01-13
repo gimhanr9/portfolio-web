@@ -52,10 +52,11 @@ const AboutSection = () => {
           </Box>
           <Box mt={3} />
           <Typography variant='body2' align='center' color='text.secondary'>
-            A tech-savvy problem-solver who loves to bring ideas and innovation
-            to life. Concentrated on the areas of full-stack web development and
-            mobile app development while also being enthusiastic about machine
-            learning. Ready to learn, grow and create something amazing!
+            A tech-savvy problem-solver who loves to bring ideas to life using
+            innovative methods. Concentrated on the areas of full-stack web
+            development and mobile app development while also being enthusiastic
+            about machine learning. Ready to learn, grow and create something
+            amazing!
           </Typography>
         </Box>
       </Box>

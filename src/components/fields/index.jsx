@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, useMediaQuery } from '@mui/material';
+import { Box, Divider, Grid, Stack, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import fields from '../../data/fields';
 import { Colors } from '../../utils/Colors';
@@ -37,6 +37,28 @@ const FieldSection = () => {
           ))}
         </Stack>
       </Box>
+      {/* <Box display='flex' flexDirection='row' justifyContent='center'>
+        <Grid
+          container
+          sx={{
+            border: `1px solid ${Colors.divider}`,
+            borderRadius: '16px',
+            width: '88%',
+          }}
+        >
+          {fields.map((field, index) => (
+            <Grid item xs={12} md={4}>
+              <CommonField
+                icon={field.icon}
+                title={field.title}
+                description={field.description}
+                technologies={field.technologies}
+                tools={field.tools}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Box> */}
     </Box>
   );
 };

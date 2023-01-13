@@ -24,8 +24,13 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
           Key areas
         </Typography>
         <Box mt={1} />
-        {technologies.map((technology) => (
-          <Typography variant='body2' align='center' color='text.secondary'>
+        {technologies.map((technology, index) => (
+          <Typography
+            key={index}
+            variant='body2'
+            align='center'
+            color='text.secondary'
+          >
             {technology}
           </Typography>
         ))}
@@ -34,8 +39,13 @@ const CommonField = ({ icon, title, description, technologies, tools }) => {
           Dev Tools
         </Typography>
         <Box mt={1} />
-        {tools.map((tool) => (
-          <Typography variant='body2' align='center' color='text.secondary'>
+        {tools.map((tool, index) => (
+          <Typography
+            key={index}
+            variant='body2'
+            align='center'
+            color='text.secondary'
+          >
             {tool}
           </Typography>
         ))}
