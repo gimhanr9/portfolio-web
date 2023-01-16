@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  Chip,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { Box, Button, Card, Chip, Grid, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 //import { useSpring, animated } from '@react-spring/web';
@@ -153,31 +144,33 @@ const ProjectCard = ({
       elevation={3}
       // onMouseEnter={fadeCard}
       // onMouseLeave={fadeCard}
-      className={'card-container'}
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        flexDirection: 'column',
-      }}
     >
-      <CardContent className='content' sx={{ padding: 4 }}>
-        <Front
-          icon={icon}
-          title={title}
-          description={description}
-          technologies={technologies}
-          completed={completed}
-        />
-
-        <Back
-          title={title}
-          details={moreDetails}
-          completed={completed}
-          isPublic={isPublic}
-          link={link}
-          showDetails={showDetails}
-        />
-      </CardContent>
+      <Grid
+        container
+        flexDirection='column'
+        justifyContent='space-between'
+        sx={{ padding: 4, height: '100%' }}
+      >
+        <Grid item>
+          <Front
+            icon={icon}
+            title={title}
+            description={description}
+            technologies={technologies}
+            completed={completed}
+          />
+        </Grid>
+        <Grid item>
+          <Back
+            title={title}
+            details={moreDetails}
+            completed={completed}
+            isPublic={isPublic}
+            link={link}
+            showDetails={showDetails}
+          />
+        </Grid>
+      </Grid>
     </Card>
   );
 };
