@@ -8,7 +8,7 @@ import DetailsDialog from './DetailsDialog';
 const RenderProjects = ({ showMore, showDetails }) => {
   if (showMore === true && projects.length > 3) {
     return projects.map((project, index) => (
-      <Grid key={index} display='flex' item xs={12} md={6} lg={4}>
+      <Grid key={index} display='flex' item xs={12} sm={6} lg={4}>
         <ProjectCard
           icon={project.icon}
           title={project.title}
