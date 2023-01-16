@@ -71,7 +71,9 @@ const App = () => {
                 key={index}
                 path={route.path}
                 element={
-                  <Layout setBrightness={changeTheme}>{route.component}</Layout>
+                  <Layout setBrightness={changeTheme} darkTheme={isDarkTheme}>
+                    {route.component}
+                  </Layout>
                 }
               />
             ))}
