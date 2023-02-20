@@ -43,8 +43,8 @@ const projects = [
       'SendGrid',
       'JWT',
     ],
-    link: '',
-    completed: false,
+    link: 'https://github.com/gimhanr9/shopping-api',
+    completed: true,
     isPublic: true,
   },
   {
