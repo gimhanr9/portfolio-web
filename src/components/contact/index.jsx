@@ -125,7 +125,14 @@ const ContactComponent = () => {
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
       <Box display='flex' justifyContent='center' pt={2} pb={8}>
-        <Box p={5} sx={{ bgcolor: 'background.secondary', minWidth: '40%' }}>
+        <Box
+          p={5}
+          sx={{
+            bgcolor: 'background.secondary',
+            minWidth: '40%',
+            borderRadius: 4,
+          }}
+        >
           <Typography variant='h5' align='center' color='text.primary'>
             Send a message
           </Typography>

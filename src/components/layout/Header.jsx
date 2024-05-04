@@ -36,7 +36,6 @@ const Header = ({ setBrightnessToggle }) => {
   };
 
   const handleBrightnessToggle = (event) => {
-    console.log(event.target.checked);
     localStorage.setItem('theme', event.target.checked);
     setToggleChecked(event.target.checked);
     setBrightnessToggle(event.target.checked);
